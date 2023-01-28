@@ -14,3 +14,15 @@
 #The repository has many commits. Can you try to list the last 3 commits alone?
 
 `git log -3`
+
+#Create new branch
+`git branch new_branch_name`
+#switch to a existing branch
+`git checkout branch_name`
+#Create new git branch and checkout at a time
+
+`git checkout -b new_branch_name`
+#Delete a git branch 
+`git branch -d branch_name`
+#List All branches 
+`git branch `
