@@ -17,3 +17,6 @@
 `git branch -d branch_name`\
 #List All branches\
 `git branch `\
+
+#To see previous commit history along with the branch they were committed on.\
+`git log --graph --decorate`
