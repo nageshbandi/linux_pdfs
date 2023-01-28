@@ -1,4 +1,4 @@
-# Learning Git
+#Learning Git
 # Git log command help to list latest commits output 
 git log
 # You can list the changed files as well using the --name-only option with the git log command Run the command 
