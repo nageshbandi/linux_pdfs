@@ -15,8 +15,8 @@
 
 `git log -3`
 
-#Create new branch
-`git branch new_branch_name`
+#Create new branch \n
+`git branch new_branch_name` \n
 #switch to a existing branch
 `git checkout branch_name`
 #Create new git branch and checkout at a time
