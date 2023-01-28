@@ -1,6 +1,6 @@
 # Learning Git
-#Git log command help to list latest commits output. 
-`git log`  
+#Git log command help to list latest commits output\
+`git log`\
 #You can list the changed files as well using the --name-only option with the git log command Run the command. 
 `git log --name-only`  
 #What is the option for git log command to display the logs in compact way (one log per line)?  
