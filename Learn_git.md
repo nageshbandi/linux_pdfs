@@ -28,3 +28,11 @@
 
 #To see previous commit history along with the branch they were committed on.\
 `git log --graph --decorate`
+
+#Adding a remote repository, The git remote add command takes two arguments:
+A remote name, for example, origin
+A remote URL, for example, https://github.com/user/repo.git
+`git remote add origin https://github.com/USER/REPO.git`
+
+#To list all remote repositories on git\
+`git remote -v`
