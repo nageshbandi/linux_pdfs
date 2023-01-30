@@ -31,8 +31,16 @@
 
 #Adding a remote repository, The git remote add command takes two arguments:
 A remote name, for example, origin
-A remote URL, for example, https://github.com/user/repo.git
+A remote URL, for example, https://github.com/user/repo.git\
 `git remote add origin https://github.com/USER/REPO.git`
 
 #To list all remote repositories on git\
 `git remote -v`
+
+#Code push 
+`git push origin master` # here origin is the remote repo alias name 
+
+#Incase we wat to push the code with fast-forwarded need to use -f option\
+`git push -f origin master `
+
+#
