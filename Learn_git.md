@@ -45,3 +45,9 @@ A remote URL, for example, https://github.com/user/repo.git \
 
 #To view all the branches- both local and remote\
 run the `git branch -a` command.
+
+#Use `git pull origin master` to pull all remote changes.
+
+#Run the command `git rebase -i HEAD~3` to squash the last 3 commits into 1.
+
+#
