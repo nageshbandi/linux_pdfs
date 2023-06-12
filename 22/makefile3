@@ -1,0 +1,19 @@
+CC = gcc
+SOURCES = rec_deposit.c arg_check.c quit.c 
+OBJECTS = rec_deposit.o arg_check.o quit.o
+HEADERS = arg_check.h quit.h
+  
+rec_deposit: $(OBJECTS)
+	$(CC) -o rec_deposit $(OBJECTS) -lm
+  
+rec_deposit.o: $(HEADERS)
+  
+arg_check.o: arg_check.h
+  
+quit.o: quit.h
+  
+clean:
+	rm $(OBJECTS)
+  
+tar:
+	tar -cvf progs.tar $(SOURCES) $(HEADERS)

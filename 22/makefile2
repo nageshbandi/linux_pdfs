@@ -1,0 +1,16 @@
+# All redundancies removed
+rec_deposit: rec_deposit.o arg_check.o quit.o
+	cc -o rec_deposit rec_deposit.o arg_check.o quit.o -lm
+  
+rec_deposit.o: quit.h arg_check.h            # Rule 2
+  
+quit.o: quit.h                               # Rule 3
+  
+arg_check.o: arg_check.h                     # Rule 4
+  
+clean:                                       # No dependency list here
+	rm *.o
+  
+tar:                                         # ... and here
+	tar -cvf progs.tar *.c *.h
+

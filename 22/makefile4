@@ -1,0 +1,10 @@
+CC = gcc
+rec_deposit: rec_deposit.o librec.a(quit.o) librec.a(arg_check.o)
+	$(CC) -o rec_deposit rec_deposit.o librec.a -lm
+  
+rec_deposit.o: quit.h arg_check.h
+  
+librec.a(quit.o): quit.h
+  
+librec.a(arg_check.o): arg_check.h
+
