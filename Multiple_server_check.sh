@@ -1,33 +1,33 @@
 #!/usr/bin/bash
 
-pemkey="$HOME/nb044266.pem"
+pemkey="$HOME/pem_file_path.pem"
 
-FROM='nageswarrao.bandi@broadcom.com'
-TO='nageswarrao.bandi@broadcom.com'
-#TO='nageswarrao.bandi@broadcom.com'
+FROM='address'
+TO='to address'
+
 DIR_PATH="$HOME/cron_jobs/"
 ASM_SERVER_LIST="$HOME/cron_jobs/new_asm_server_list.txt"
 
 function check(){
-ssh -o "StrictHostKeyChecking=no" -i ${pemkey} root@stage08.watchmouse.net "$1"
+ssh -o "StrictHostKeyChecking=no" -i ${pemkey} root@hostname "$1"
 }
 function disk_check(){
-ssh -o StrictHostKeyChecking=no -i ${pemkey}  $1@$2.watchmouse.net "$3" | awk -F " " 'NR==2 {print $5 }'
+ssh -o StrictHostKeyChecking=no -i ${pemkey}  $1@hostname "$3" | awk -F " " 'NR==2 {print $5 }'
 }
 function check_server_status(){
-ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no -i ${pemkey} $1@$2.watchmouse.net $3
+ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no -i ${pemkey} $1@hostname $3
 }
 function cpu_check(){
-ssh -o StrictHostKeyChecking=no -i ${pemkey}  $1@$2.watchmouse.net "$3" | awk -F " " 'NR==4 {print $4 }'
+ssh -o StrictHostKeyChecking=no -i ${pemkey}  $1@hostname "$3" | awk -F " " 'NR==4 {print $4 }'
 }
 function disk_check(){
-ssh -o "StrictHostKeyChecking=no" -i ${pemkey} $1@$2.watchmouse.net "$3 && $4 "
+ssh -o "StrictHostKeyChecking=no" -i ${pemkey} $1@hostname "$3 && $4 "
 }
 function calculation(){
-status=$(openssl s_client -connect $1.watchmouse.net:443 2>/dev/null |openssl x509 -noout -dates | tee -a $LOG_FILE)
+status=$(openssl s_client -connect hostname:443 2>/dev/null |openssl x509 -noout -dates | tee -a $LOG_FILE)
 }
 function calculation_on_server(){
- status=$( ssh -o "StrictHostKeyChecking=no" -i ${pemkey} $1@$2.watchmouse.net "openssl s_client -connect ${2}.watchmouse.net:443 2>/dev/null |openssl x509 -noout -dates")
+ status=$( ssh -o "StrictHostKeyChecking=no" -i ${pemkey} $1@hostname "openssl s_client -connect hostname:443 2>/dev/null |openssl x509 -noout -dates")
 }
 
 
@@ -36,8 +36,6 @@ function calculation_on_server(){
 source $HOME/cron_jobs/primary.sh
 
 #From mail 
-
-#FROM='nageswarrao.bandi@broadcom.com'
 
 DATE_TIME=$(date +"%Y_%m_%d_%H_%M")
 OUT_PUT_FILE="ASM_Disk_Memory_out_${DATE_TIME}.txt"
